@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using LayeredMvcTest.Web.Controllers;
+using LayeredMvcTest.DataAccess;
 
 namespace LayeredMvcTest.Web
 {
@@ -18,6 +19,18 @@ namespace LayeredMvcTest.Web
             // 把 MVC 框架預設 Controller Factory 換掉
             var ctrlFactory = new MyControllerFactory();
             ControllerBuilder.Current.SetControllerFactory(ctrlFactory);
+        }
+        protected void Application_BeginRequest()
+        {
+            HttpContext.Current.Items["DbContext"] = new SouthwindContext();
+        }
+        protected void Application_EndRequest()
+        {
+            var db = HttpContext.Current.Items["DbContext"] as SouthwindContext;
+            if (db != null)
+            {
+                db.Dispose();
+            }
         }
     }
 }

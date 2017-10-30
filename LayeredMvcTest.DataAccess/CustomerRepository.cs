@@ -9,7 +9,7 @@ namespace LayeredMvcTest.DataAccess
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private SouthwindContext db = new SouthwindContext();
+        private SouthwindContext db = SouthwindContext.InstanceInCurrentRequest;
 
         public Customer GetCustomerById(int id)
         {
