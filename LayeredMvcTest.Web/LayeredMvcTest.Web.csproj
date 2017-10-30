@@ -151,6 +151,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\MyControllerFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +182,10 @@
     <ProjectReference Include="..\LayeredMvcTest.Application\LayeredMvcTest.Application.csproj">
       <Project>{5ce28eb4-8bfb-456c-94ae-b46d56e641e5}</Project>
       <Name>LayeredMvcTest.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LayeredMvcTest.DataAccess\LayeredMvcTest.DataAccess.csproj">
+      <Project>{dea2b1a7-fa03-46ed-b4bf-403cb24d9c70}</Project>
+      <Name>LayeredMvcTest.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\LayeredMvcTest.Domain\LayeredMvcTest.Domain.csproj">
       <Project>{186fb627-23db-4c7d-9201-b93e6b838e1f}</Project>

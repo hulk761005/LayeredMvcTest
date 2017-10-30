@@ -9,7 +9,12 @@ namespace LayeredMvcTest.Web.Controllers
 {
     public class CustomerController : Controller
     {
-        private CustomerService _service = new CustomerService();
+        private readonly ICustomerService _service;
+
+        public CustomerController(ICustomerService service)
+        {
+            this._service = service;
+        }
         // GET: Customer
         public ActionResult Index()
         {

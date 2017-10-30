@@ -7,7 +7,7 @@ using LayeredMvcTest.Domain.Model;
 
 namespace LayeredMvcTest.DataAccess
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private SouthwindContext db = new SouthwindContext();
 

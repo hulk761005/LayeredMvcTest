@@ -8,14 +8,20 @@ using LayeredMvcTest.Domain.Model;
 
 namespace LayeredMvcTest.Application.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
-        CustomerRepository _rep = new CustomerRepository();
+        private readonly ICustomerRepository _rep;
+
+        public CustomerService(ICustomerRepository repo)
+        {
+            _rep = repo;
+        }
 
         public Customer GetCustomerById(int id)
         {
             return _rep.GetCustomerById(id);
         }
+
         public List<Customer> GetCustomerList(Func<Customer,bool> filter)
         {
             return _rep.GetCustomerList(filter).ToList();
