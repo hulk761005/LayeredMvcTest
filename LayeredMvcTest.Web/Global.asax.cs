@@ -17,8 +17,8 @@ namespace LayeredMvcTest.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             // 把 MVC 框架預設 Controller Factory 換掉
-            var ctrlFactory = new MyControllerFactory();
-            ControllerBuilder.Current.SetControllerFactory(ctrlFactory);
+            var myResolver = new MyDependencyResolver();
+            DependencyResolver.SetResolver(myResolver);
         }
         protected void Application_BeginRequest()
         {
