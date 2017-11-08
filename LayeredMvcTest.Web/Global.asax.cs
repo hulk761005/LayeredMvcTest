@@ -16,7 +16,7 @@ namespace LayeredMvcTest.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            // 把 MVC 框架預設 Controller Factory 換掉
+            // 設定 MVC 應用程式的全域 dependency resolver 物件
             var myResolver = new MyDependencyResolver();
             DependencyResolver.SetResolver(myResolver);
         }
